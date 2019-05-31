@@ -1,7 +1,7 @@
 import React, { Component} from "react";
-import ArtistsList from "../components/ArtiststList"
+import SongsList from "../components/SongsList"
 
-class Artists extends Component {
+class Songs extends Component {
  
   state = {
     loading: false,
@@ -10,16 +10,16 @@ class Artists extends Component {
   }
 
   componentDidMount() {
-    this.obtenerArtistas()
+    this.obtenerCanciones()
   }
- 
-  obtenerArtistas = async () => {
+
+  async obtenerCanciones() {
     this.setState({ loading: true })
 
     try {
-      const data = await fetch('https://rubytify.herokuapp.com/api/v1')
-      const artists = await data.json()
-      this.setState({ loading: false, error: null, data: artists.data })
+      const data = await fetch(`https://rubytify.herokuapp.com/api/v1/albums/1/songs`)
+      const songs = await data.json()
+      this.setState({ loading: false, error: null, data: songs.data })
     } catch (error) {
       this.setState({ error: error.message, loading: false })
     }
@@ -36,10 +36,10 @@ class Artists extends Component {
 
     return(
       <div>
-        <ArtistsList artists={this.state.data} />
+        <SongsList songs={this.state.data} />
       </div>
     )
   }
 }
 
-export default Artists;
+export default Songs;
