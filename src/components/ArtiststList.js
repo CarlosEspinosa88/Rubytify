@@ -1,5 +1,6 @@
-import React from "react"
-import "./styles/grid.css" 
+import React from "react";
+import {Link} from "react-router-dom";
+import "./styles/grid.css"; 
 
 class ArtistList extends React.Component {
 	render() {
@@ -13,7 +14,7 @@ class ArtistList extends React.Component {
 					return(
 						<React.Fragment>
 							<div className="images" style={{backgroundImage: `url(${artist.image})`}} key={artist.image} >
-								<button onClick={function() { alert('click'); }} >{artist.name}</button>
+								<Link to={`${artist.id}/albums`} id={artist.id} >{artist.name}</Link>
 							</div>
 						</React.Fragment>
 					);

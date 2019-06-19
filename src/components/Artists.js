@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import ArtistsList from "../components/ArtiststList"
+import ArtistsList from "../components/ArtiststList";
 
 class Artists extends Component {
  

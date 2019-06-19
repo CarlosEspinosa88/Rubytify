@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	background: #151515;
 }
 
 .container {
@@ -16,6 +17,21 @@ body {
 	grid-gap: 20px;
 }
 
+.grid-container-albums {
+	display: grid;
+	grid-template: auto/repeat(5, minmax(200px, 1fr));
+	grid-gap: 20px;
+}
+
+.grid-container-song {
+	display: grid;
+	grid-template: auto/repeat(1, minmax(200px, 1fr));
+	grid-gap: 30px;
+	width: 870px;
+	padding: 40px 0;
+	margin: 0 auto;
+}
+
 .images {
 	width: 200px;
 	height: 200px;
@@ -25,7 +41,24 @@ body {
 	background-repeat: no-repeat;
 }
 
-.grid-container button {
+.images-albums {
+	height: 200px;
+	width: 200px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	justify-self: center;
+	border-radius: 100%;
+}
+
+.grid-container-albums a {
+	text-align: center;
+  align-self: center;
+	justify-self: center;
+	text-decoration: none;
+}
+
+.grid-container a {
 	font-size: 14px;
 	width: 200px;
 	color: #fff;
@@ -40,14 +73,51 @@ body {
 	align-items: center;
 	background: rgba(0, 0, 0, 0.5);
 	border-width: 0;
+	text-decoration: none;
+  font-family: Gotham;
 }
 
-.grid-container button:focus, .grid-container button:active {
+.grid-container-song a {
+	font-family: Gotham;
+	text-decoration: none;
+	display: block;
+	padding-bottom: 10px;
+}
+
+.grid-container-song a.item-song:hover {
+	color: rgba(91, 156, 127, 0.71);
+}
+
+.grid-container a:focus, .grid-container a:active {
 	outline: -webkit-focus-ring-color auto 0px !important;
 	outline-color: transparent !important;
 }
 
-.grid-container button:hover{
+.grid-container a:hover{
 	background: rgba(0, 88, 49, 0.57);
+}
+
+/* .grid-container-albums a:hover {
+	background: rgba(0, 88, 49, 0.57);
+	height: 200px;
+	width: 200px;
+	display: grid;
+	align-items: center;
+	border-radius: 100%;
+	padding: 0;
+} */
+
+.album-name {
+	width: 200px;
+	font-family: Gotham;
+	color: #fff;
+	padding: 20px 0px 10px 0px;
+	font-size: 12px;
+}
+
+.item-song {
+	color: #fff;
+	border-bottom: 1px solid rgba(91, 156, 127, 0.3);
+	width: 100%;
 }
 

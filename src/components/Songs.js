@@ -1,23 +1,29 @@
 import React, { Component} from "react";
-import SongsList from "../components/SongsList"
+import SongsList from "../components/SongsList";
 
 class Songs extends Component {
  
   state = {
     loading: false,
     error: null,
-    data: undefined
+    data: undefined,
+    id: 1,
   }
 
   componentDidMount() {
     this.obtenerCanciones()
   }
 
-  async obtenerCanciones() {
+  obtenerCanciones = async () =>  {
     this.setState({ loading: true })
+		var id = this.state.id
+
+		if (this.props.match.params.albumsId) {
+			id = parseInt(this.props.match.params.albumsId)
+		} 
 
     try {
-      const data = await fetch(`https://rubytify.herokuapp.com/api/v1/albums/1/songs`)
+      const data = await fetch(`https://rubytify.herokuapp.com/api/v1/albums/${id}/songs`)
       const songs = await data.json()
       this.setState({ loading: false, error: null, data: songs.data })
     } catch (error) {

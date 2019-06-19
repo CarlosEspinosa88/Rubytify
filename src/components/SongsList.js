@@ -1,5 +1,6 @@
-import React from "react"
-import "./styles/grid.css" 
+import React from "react";
+import "./styles/grid.css"; 
+// import "./styles/circle-play.css"; 
 
 class ArtistsSongs extends React.Component {
 	render() {
@@ -9,13 +10,21 @@ class ArtistsSongs extends React.Component {
 		}
 
 		return (
-			<div>
+			<div className="grid-container-song">
 				{this.props.songs.map(songs => {
+
+					if (songs.preview_url === null) {
+						return <p style= {{color: '#fff'}}>No hay preview de canción</p>
+					}
+
 					return(
 						<React.Fragment>
+							<div className="wrapper" data-anim="base wrapper">
+								<div className="circle" data-anim="base left"></div>
+								<div className="circle" data-anim="base right"></div>
+							</div>
 							<div>
-								<div key={songs.name} >{songs.image}</div>
-								<a style={{ color: '#fff'}} href={`${songs.preview_url}`} key={songs.preview_url}>{songs.name}</a>
+								<a className="item-song" href={songs.preview_url} key={songs.preview_url} target="_blank"> {songs.name}</a>
 							</div>
 							
 						</React.Fragment>
