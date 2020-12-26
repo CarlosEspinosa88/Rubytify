@@ -1,11 +1,10 @@
 import React from 'react';
-import Artists from "./components/Artists";
+// import { Home } from "./components/Pages/Home"
+import { Layout } from "./components/Layout"
 
 function App() {
   return (
-    <div className="container">
-      <Artists />
-    </div>
+    <Layout />
   )
 }
 
