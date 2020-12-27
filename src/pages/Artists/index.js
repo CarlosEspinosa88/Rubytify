@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { ArtistList } from "../ArtistList";
-import { Wrapper } from "./styles";
-import {useArtists} from '../../hooks/useArtists'
-
-const API = 'https://rubytify.herokuapp.com/api/v1';
+import { ArtistList } from "../../components/ArtistList";
+import { Wrapper } from "../styles";
+import { useArtists } from '../../utils/hooks/useArtists'
+import { API_URL } from '../../services/settings';
 
 function Artists()  {
   const [values, setValues] = useState({loading: true})
-  const artists = useArtists(API)
+  const artists = useArtists(API_URL)
 
   if (values.loading) {
     setTimeout(() => {
