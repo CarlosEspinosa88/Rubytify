@@ -1,6 +1,5 @@
 import React from 'react'
-import { Home } from '../Pages/Home'
-import { Grid, Left, Contain, Footer } from "./styles"
+import { Grid, Left, Contain, Footer } from "./styles";
 
 export function Layout(children) {
   return (
@@ -9,7 +8,7 @@ export function Layout(children) {
         <p>adsdsa</p>
       </Left>
       <Contain >
-        {children && <Home />}
+        {children}
       </Contain>
       <Footer>
         <p>adsdsa</p>

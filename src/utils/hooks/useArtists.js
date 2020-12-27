@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useArtists = function(url) {
-  const [artist, setArtist ] = useState([]);
+  const [ artist, setArtist ] = useState([]);
 
   useEffect(() => {
     async function getArtists() {
