@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { ArtistList } from "../../components/ArtistList";
+import { Layout } from "../../components/Layout";
 import { Wrapper } from "../styles";
-import { useArtists } from '../../utils/hooks/useArtists'
+import { ArtistList } from "../../components/ArtistList";
+import { useArtists } from '../../utils/hooks/useArtists';
 import { API_URL } from '../../services/settings';
 
 function Artists()  {
@@ -16,9 +17,11 @@ function Artists()  {
   }
 
   return(
-    <Wrapper>
-      <ArtistList artists={artists} />
-    </Wrapper>
+    <Layout>
+      <Wrapper>
+        <ArtistList artists={artists} />
+      </Wrapper>
+    </Layout>
   )
 }
 

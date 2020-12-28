@@ -5,7 +5,6 @@ export const Grid = styled.div`
   grid-template: 685px minmax(80px,auto) 0px / minmax(0px,220px) 1fr;
   grid-template-areas: "left contain" "footer footer";
 `
-// grid-template: 180px minmax(590px, auto) 100px / minmax(260px, 20%) 1fr;
 
 export const Head = styled.div`
   grid-area: head;
@@ -19,8 +18,6 @@ export const Left = styled.div`
 
 export const Contain = styled.div`
   grid-area: contain;
-  background-color: #383838;
-  margin: 0, 15px;
 `
 
 export const Footer = styled.div`

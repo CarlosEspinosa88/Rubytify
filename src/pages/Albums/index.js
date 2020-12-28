@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Layout } from "../../components/Layout";
 import { Wrapper } from "../styles";
 import { AlbumList } from '../../components/AlbumList';
 import { useArtists } from '../../utils/hooks/useArtists'
@@ -18,9 +19,11 @@ function Albums(props) {
   }
 
 	return (
-		<Wrapper>
-			<AlbumList albums={albums} />
-		</Wrapper>
+    <Layout>
+      <Wrapper>
+        <AlbumList albums={albums} />
+      </Wrapper>
+    </Layout>
 	)
 }
 
