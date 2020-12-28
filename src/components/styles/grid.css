@@ -3,7 +3,8 @@
 	grid-template: auto/repeat(4, minmax(160px, 246px));
 	grid-gap: 20px;
 	justify-content: center;
-	padding: 42px 0;
+	padding-top: 10px;
+	padding-bottom: 200px;
 }
 
 .grid-container-albums {

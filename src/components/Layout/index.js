@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 import { Grid, Left, Contain, Footer } from "./styles";
 
-export function Layout(children) {
+export function Layout({ children }) {
   return (
     <Grid>
       <Left>
-        <p>adsdsa</p>
+        <p>Menu Lateral</p>
       </Left>
       <Contain >
         {children}
       </Contain>
       <Footer>
-        <p>adsdsa</p>
+        <p>Menu Footer</p>
       </Footer>
     </Grid>
   )

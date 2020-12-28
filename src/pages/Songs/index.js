@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Layout } from "../../components/Layout";
 import { Wrapper } from "../styles";
 import { SongList } from "../../components/SongList";
 import { useArtists } from '../../utils/hooks/useArtists'
@@ -19,10 +20,12 @@ function Songs(props) {
     return <h1>Loading...</h1>
   }
 
-  return(
-    <Wrapper>
-      <SongList songs={songs} />
-    </Wrapper>
+  return (
+    <Layout>
+      <Wrapper>
+        <SongList songs={songs} />
+      </Wrapper>
+    </Layout>
   )
 }
 
