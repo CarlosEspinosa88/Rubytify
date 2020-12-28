@@ -16,10 +16,31 @@
 .grid-container-song {
 	display: grid;
 	grid-template: auto/repeat(1, minmax(200px, 1fr));
-	grid-gap: 30px;
-	width: 870px;
-	padding: 40px 0;
+	grid-gap: 10px;
+	width: 90%;
 	margin: 0 auto;
+	padding-bottom: 200px;
+	padding-top: 22px;
+}
+
+.grid-list-song {
+	display: flex;
+	flex-direction: row;
+}
+
+.grid-list-song p {
+	padding-right: 10px;
+	font-size: 13px;
+}
+
+.artist {
+	color:rgb(179, 179, 179);
+	font-size: 13px;
+}
+
+.album {
+	color:rgb(96, 96, 96);
+	font-size: 14px;
 }
 
 .images {
@@ -34,6 +55,16 @@
 .images-albums {
 	height: 200px;
 	width: 200px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	justify-self: center;
+	border-radius: 100%;
+}
+
+.images-songs {
+	height: 80px;
+	width: 80px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -74,8 +105,8 @@
 	padding-bottom: 10px;
 }
 
-.grid-container-song a.item-song:hover {
-	color: rgba(91, 156, 127, 0.71);
+.grid-container-song .item-song a:hover {
+	color: rgba(118, 118, 118, 0.42);
 }
 
 .grid-container a:focus, .grid-container a:active {
@@ -96,8 +127,27 @@
 }
 
 .item-song {
-	color: #fff;
-	border-bottom: 1px solid rgba(91, 156, 127, 0.3);
 	width: 100%;
+	padding: 0
 }
 
+.item-song a {
+	color: #9a9a9a;
+	font-size: 20px;
+	padding: 0
+}
+
+.item-song div {
+	color: #fff;
+	padding: 0
+}
+
+.title {
+	color: #d1d1d1;
+	padding: 0px 42px
+}
+
+.not-preview {
+	color: #9a9a9a;
+	font-size: 18px;
+}

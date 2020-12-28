@@ -11,12 +11,12 @@ export function ArtistList(props) {
 
 	return (
 		<>
-			<h1 style={{color: "#d1d1d1", padding: "0px 42px"}}>Lista de Artistas</h1>
+			<h1 className="title">Rubytify</h1>
 			<div className="grid-container">
 				{artists.map(artist => {
 					return (
 						<div key={artist.id} className="images" style={{backgroundImage: `url(${artist.image})`}}>
-							<Link to={`${artist.id}/albums`} id={artist.id} >{artist.name}</Link>
+							<Link to={`${artist.id}/${artist.name}/albums`} id={artist.id} name={artist.name}>{artist.name}</Link>
 						</div>
 					);
 				})}

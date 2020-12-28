@@ -6,12 +6,12 @@ import { useArtists } from '../../utils/hooks/useArtists'
 import { API_URL } from '../../services/settings'
 
 function Songs(props) {
-  const id = props.match.params.albumsId;
+  const { albumId, albumName, artistName } = props.match.params;
   const [values, setValues] = useState({
     loading: true,
   });
   
-  const songs = useArtists(`${API_URL}/albums/${id}/songs`)
+  const songs = useArtists(`${API_URL}/albums/${albumId}/songs`)
 
   if (values.loading) {
     setTimeout(() => {
@@ -23,7 +23,11 @@ function Songs(props) {
   return (
     <Layout>
       <Wrapper>
-        <SongList songs={songs} />
+        <SongList 
+          songs={songs}
+          albumName={albumName}
+          artistName={artistName}
+        />
       </Wrapper>
     </Layout>
   )
