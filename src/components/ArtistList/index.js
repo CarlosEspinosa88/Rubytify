@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/grid.css"; 
+import "../styles/grid.css";
 
 export function ArtistList(props) {
   const { artists, loading } = props;
