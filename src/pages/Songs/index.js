@@ -7,17 +7,13 @@ import { API_URL } from '../../services/settings'
 
 function Songs(props) {
   const { albumId, albumName, artistName } = props.match.params;
-  const [values, setValues] = useState({
-    loading: true,
-  });
-  
-  const songs = useArtists(`${API_URL}/albums/${albumId}/songs`)
+  const [ values, setValues] = useState({ loading: true });
+  const songs = useArtists(`${API_URL}/albums/${albumId}/songs`);
 
   if (values.loading) {
     setTimeout(() => {
       setValues((prevValues) => ({ ...prevValues, loading: false }) )
     }, 5000)
-    return <h1>Loading...</h1>
   }
 
   return (
@@ -27,6 +23,7 @@ function Songs(props) {
           songs={songs}
           albumName={albumName}
           artistName={artistName}
+          loading={values.loading}
         />
       </Wrapper>
     </Layout>

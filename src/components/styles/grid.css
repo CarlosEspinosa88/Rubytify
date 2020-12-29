@@ -151,3 +151,12 @@
 	color: #9a9a9a;
 	font-size: 18px;
 }
+
+.loading-data {
+	position: absolute;
+	left: 55%;
+	right: 0;
+	top: 45%;
+	bottom: 0;
+
+}
