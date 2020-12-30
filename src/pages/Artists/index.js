@@ -1,37 +1,18 @@
-import React, { useState, useRef, useCallback, useMemo } from "react";
+import React, { useState } from "react";
 import { Layout } from "../../components/Layout";
 import { Wrapper } from "../styles";
 import { ArtistList } from "../../components/ArtistList";
-import { useArtists } from '../../utils/hooks/useArtists';
+import { useFilterSearch } from '../../utils/hooks/useFilterSearch';
 import { SearchBar } from "../../components/SearchBar"
 import { API_URL } from '../../services/settings';
 
 function Artists()  {
-  const [ values, setValues ] = useState({ 
-    loading: true,
-    search: ''
-  });
+  const [ validate, setLoading ] = useState({ loading: true });
+  const [handleSearch, filterArtist, searchInput, values] = useFilterSearch(API_URL);
 
-  const searchInput = useRef(null);
-  const artists = useArtists(API_URL);
-
-  const handleSearch = useCallback(() => {
-    setValues((prevValues) => ({
-      ...prevValues,
-      search: searchInput.current.value
-    }))
-  }, [])
-
-  const filterArtist = useMemo(() => 
-    artists.filter((artist) => (
-      artist.name.toLowerCase().includes(values.search.toLowerCase())
-    )),
-    [artists, values.search]
-  )
-
-  if (values.loading) {
+  if (validate.loading) {
     setTimeout(() => {
-      setValues((prevValues) => ({ ...prevValues, loading: false }) )
+      setLoading((prevValues) => ({ ...prevValues, loading: false }) )
     }, 5000)
   }
 
@@ -39,14 +20,14 @@ function Artists()  {
     <Layout>
       <Wrapper>
         <SearchBar 
-          artists={artists}
-          search={values.search}
+          search={values}
+          placeholder="Artistas"
           searchInput={searchInput}
           handleSearch={handleSearch}
         />
         <ArtistList 
           artists={filterArtist}
-          loading={values.loading}
+          loading={validate.loading}
         />
       </Wrapper>
     </Layout>

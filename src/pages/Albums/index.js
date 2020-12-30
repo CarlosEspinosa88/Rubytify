@@ -2,27 +2,36 @@ import React, { useState } from 'react';
 import { Layout } from "../../components/Layout";
 import { Wrapper } from "../styles";
 import { AlbumList } from '../../components/AlbumList';
-import { useArtists } from '../../utils/hooks/useArtists'
+import { useFilterSearch } from '../../utils/hooks/useFilterSearch';
+import { SearchBar } from "../../components/SearchBar"
 import { API_URL } from '../../services/settings'
 
 function Albums(props) {
   const { artistId, artistName } = props.match.params;
-	const [ values, setValues ] = useState({ loading: true });
-  const albums = useArtists(`${API_URL}/artists/${artistId}/albums`);
+	const [ validate, setLoading ] = useState({ loading: true });
+  const ALBUMS_URL = `${API_URL}/artists/${artistId}/albums`;
+
+  const [handleSearch, filterArtist, searchInput, values] = useFilterSearch(ALBUMS_URL);
   
-  if (values.loading) {
+  if (validate.loading) {
     setTimeout(() => {
-      setValues((prevValues) => ({ ...prevValues, loading: false }) )
+      setLoading((prevValues) => ({ ...prevValues, loading: false }) )
     }, 5000)
   }
 
 	return (
     <Layout>
       <Wrapper>
+        <SearchBar
+          search={values}
+          placeholder="Albumnes"
+          searchInput={searchInput}
+          handleSearch={handleSearch}
+        />
         <AlbumList 
-          albums={albums}
+          albums={filterArtist}
           artistName={artistName} 
-          loading={values.loading}
+          loading={validate.loading}
         />
       </Wrapper>
     </Layout>

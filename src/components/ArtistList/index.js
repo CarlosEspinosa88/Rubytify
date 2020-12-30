@@ -6,7 +6,7 @@ export function ArtistList(props) {
   const { artists, loading } = props;
   
   return (
-    <div>
+    <div className="container-list">
       <h1 className="title">Rubytify</h1>
       {loading ? (
         <div className="loading-data">

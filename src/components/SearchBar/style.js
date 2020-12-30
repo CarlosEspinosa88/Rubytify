@@ -10,6 +10,10 @@ export const Input = styled.input`
   color: #3a3a3a;
   outline: none;
 `
-  // &:focus {
-  //   border: 1px solid #d1d1d1;
-  // }
+
+export const ContainerInput = styled.div`
+  width: 100%;
+  height: 77px;
+  position: fixed;
+  background-color: rgb(21 21 21 / 81%);
+`
