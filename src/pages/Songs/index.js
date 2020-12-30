@@ -2,28 +2,38 @@ import React, { useState } from "react";
 import { Layout } from "../../components/Layout";
 import { Wrapper } from "../styles";
 import { SongList } from "../../components/SongList";
-import { useArtists } from '../../utils/hooks/useArtists'
+// import { useArtists } from '../../utils/hooks/useArtists'
+import { useFilterSearch } from '../../utils/hooks/useFilterSearch';
+import { SearchBar } from "../../components/SearchBar"
 import { API_URL } from '../../services/settings'
 
 function Songs(props) {
   const { albumId, albumName, artistName } = props.match.params;
-  const [ values, setValues] = useState({ loading: true });
-  const songs = useArtists(`${API_URL}/albums/${albumId}/songs`);
+  const [ validate, setLoading ] = useState({ loading: true });
+  const SONGS_URL = `${API_URL}/albums/${albumId}/songs`;
 
-  if (values.loading) {
+  const [handleSearch, filterArtist, searchInput, values] = useFilterSearch(SONGS_URL);
+
+  if (validate.loading) {
     setTimeout(() => {
-      setValues((prevValues) => ({ ...prevValues, loading: false }) )
+      setLoading((prevValues) => ({ ...prevValues, loading: false }) )
     }, 5000)
   }
 
   return (
     <Layout>
       <Wrapper>
+        <SearchBar
+          search={values}
+          placeholder="Canciones"
+          searchInput={searchInput}
+          handleSearch={handleSearch}
+        />
         <SongList 
-          songs={songs}
+          songs={filterArtist}
           albumName={albumName}
           artistName={artistName}
-          loading={values.loading}
+          loading={validate.loading}
         />
       </Wrapper>
     </Layout>

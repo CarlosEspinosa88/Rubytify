@@ -1,17 +1,16 @@
 import React from 'react';
-import { Input } from "./style"
+import { Input, ContainerInput } from "./style"
 
-export function SearchBar({ searchInput, search, handleSearch }) {
-
+export function SearchBar({ searchInput, search, handleSearch, placeholder }) {
   return (
-    <div>
+    <ContainerInput>
       <Input
         type="text"
         ref={searchInput}
-        defaultValue={search}
+        defaultValue={search.values}
         onChange={handleSearch}
-        placeholder="Buscar Artistas"
+        placeholder={`Buscar ${placeholder}`}
       />
-    </div>
+    </ContainerInput>
   )
 }

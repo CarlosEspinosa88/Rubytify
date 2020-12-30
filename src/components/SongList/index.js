@@ -5,7 +5,7 @@ export function SongList(props) {
   const { songs, albumName, artistName, loading } = props;
 
   return (
-    <div>
+    <div className="container-list">
       <h1 className="title">{albumName}</h1>
       {loading ? (
         <div className="loading-data">
