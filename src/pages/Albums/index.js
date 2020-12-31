@@ -3,8 +3,8 @@ import { Layout } from "../../components/Layout";
 import { Wrapper } from "../styles";
 import { AlbumList } from '../../components/AlbumList';
 import { useFilterSearch } from '../../utils/hooks/useFilterSearch';
-import { SearchBar } from "../../components/SearchBar"
-import { API_URL } from '../../services/settings'
+import { SearchBar } from "../../components/SearchBar";
+import { API_URL } from '../../services/settings';
 
 function Albums(props) {
   const { artistId, artistName } = props.match.params;
